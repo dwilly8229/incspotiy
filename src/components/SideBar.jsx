@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { assets } from "../assets/assets";
+import { assets } from "../assets";
+import { PlayerContext } from "../context/PlayerContext";
 
 const SideBar = () => {
+  const { dominantColor } = useContext(PlayerContext);
   return (
-    <div className="w-[25%] h-full p-2 flex-col gap-2 text-white hidden lg:flex">
-      <div className="bg-[#121212] h-full rounded flex flex-col justify-around">
+    <div className="w-[25%] h-full p-2 flex-col gap-2 text-white hidden lg:flex ">
+      <div
+        className="bg-[#121212] h-full rounded flex flex-col justify-around transition-all duration-500"
+        style={{
+          background: `linear-gradient(160deg, ${
+            dominantColor || "#1e1e1e"
+          }, #121212)`,
+        }}
+      >
         <div className="flex items-center mb-8">
           <img
             src={assets.spotify_logo}

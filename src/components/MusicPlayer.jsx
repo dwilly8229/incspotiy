@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { PlayerContext } from "../context/PlayerContext";
-import { isFavourite, addToFavourites } from "../utils/storage";
-import { assets } from "../assets/assets";
+import { assets } from "../assets";
 
 const MusicPlayer = () => {
   const {
@@ -13,6 +12,7 @@ const MusicPlayer = () => {
     audioRef,
     toggleFavourtie,
     isFav,
+    dominantColor,
   } = useContext(PlayerContext);
 
   const [progress, setProgress] = useState(0);
@@ -76,7 +76,14 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className="w-[60%] min-w-[300px] min-h-[350px] m-2 px-6 pt-4 rounded bg-[#121212] rounded-xl text-white overflow-auto lg:w-[75%] lg:ml-0 flex flex-col items-center">
+    <div
+      className="w-[60%] min-w-[300px] min-h-[350px] m-2 px-6 pt-4 rounded bg-[#121212] rounded-xl text-white overflow-auto lg:w-[75%] lg:ml-0 flex flex-col items-center transition-all duration-500"
+      style={{
+        background: `linear-gradient(160deg, ${
+          dominantColor || "#1e1e1e"
+        }, #121212)`,
+      }}
+    >
       <img
         src={currentSong.cover}
         alt="cover"

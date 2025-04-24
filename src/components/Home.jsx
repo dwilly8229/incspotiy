@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { PlayerContext } from "../context/PlayerContext";
-import { songsData } from "../assets/assets";
+import { songsData } from "../assets";
 
 const Home = ({ searchTerm }) => {
   const { playSong, toggleFavourtie, isFav } = useContext(PlayerContext);

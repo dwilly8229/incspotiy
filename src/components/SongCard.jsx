@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./Home";
 import Favourities from "./Favourites";
 import RecentlyPlayed from "./RecentlyPlayed";
 import TopT from "./TopT";
+import { PlayerContext } from "../context/PlayerContext";
 
 const SongCard = () => {
   const location = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
+  const { dominantColor } = useContext(PlayerContext);
 
   const getTitle = () => {
     switch (location.pathname) {
@@ -24,7 +26,14 @@ const SongCard = () => {
     }
   };
   return (
-    <div className="w-[25%] m-2 px-6 pt-4 rounded bg-[#121212] text-white overflow-auto lg:w-[75%] lg:ml-0">
+    <div
+      className="w-[25%] m-2 px-6 pt-4 rounded bg-[#121212] text-white overflow-auto lg:w-[75%] lg:ml-0 transition-all duration-500"
+      style={{
+        background: `linear-gradient(160deg, ${
+          dominantColor || "#1e1e1e"
+        }, #121212)`,
+      }}
+    >
       <h1 className="text-2xl font-bold mb-4">{getTitle()}</h1>
       <input
         type="text"

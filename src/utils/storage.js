@@ -22,8 +22,8 @@ export const isFavourite = (id) => {
 };
 
 export const addToRecentlyPlayed = (song) => {
-  const recent = getRecentlyPlayed().filter((s) => s.id !== song.id);
+  let recent = getRecentlyPlayed().filter((s) => s.id !== song.id);
   recent.unshift(song);
-  if (recent.length > 20) recent = recent.slice(0, 20);
+  recent = recent.slice(0, 20);
   sessionStorage.setItem(Recently_Played_KEY, JSON.stringify(recent));
 };

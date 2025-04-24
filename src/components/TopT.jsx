@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { songsData } from "../assets/assets";
+import { songsData } from "../assets";
 import { PlayerContext } from "../context/PlayerContext";
 
 const TopT = ({ searchTerm }) => {
