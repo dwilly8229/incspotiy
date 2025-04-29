@@ -19,7 +19,7 @@ const RecentlyPlayed = ({ searchTerm }) => {
       {filtered.map((song) => (
         <div
           key={song.id}
-          className="flex items-center justify-between gap-2 rounded hover:bg-[#ffffff26]"
+          className="flex items-center justify-between gap-2 p-2 rounded hover:bg-[#ffffff26] cursor-pointer"
         >
           <div
             className="flex items-center gap-3"
@@ -34,16 +34,16 @@ const RecentlyPlayed = ({ searchTerm }) => {
               <p className="text-xs text-gray-400">{song.artist}</p>
               <p className="text-sm text-white">{song.title}</p>
             </div>
-            <button
-              className="text-white text-sm"
-              onClick={(e) => {
-                e.stopPropagation();
-                toggleFavourtie(song);
-              }}
-            >
-              {isFav(song.id) ? "❤️" : "🤍"}
-            </button>
           </div>
+          <button
+            className="text-white text-sm"
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleFavourtie(song);
+            }}
+          >
+            {isFav(song.id) ? "❤️" : "🤍"}
+          </button>
         </div>
       ))}
     </div>

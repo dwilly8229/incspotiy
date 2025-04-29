@@ -1,6 +1,7 @@
 import bell_icon from "/assets/bell.png";
 import home_icon from "/assets/home.png";
 import recent_icon from "/assets/recently.png";
+import star_1_icon from "/assets/star1.png";
 import star_icon from "/assets/star.png";
 import like_icon from "/assets/like.png";
 import loop_icon from "/assets/loop.png";
@@ -66,6 +67,7 @@ export const assets = {
   recent_icon,
   profile_icon,
   star_icon,
+  star_1_icon,
   home_icon,
   like_icon,
   loop_icon,
