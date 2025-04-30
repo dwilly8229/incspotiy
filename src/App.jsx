@@ -11,7 +11,7 @@ const App = () => {
   };
 
   return (
-    <div className="lg:h-screen bg-black relative overflow-hidden sm:min-h-screen">
+    <div className="h-auto sm:min-h-screen bg-black relative overflow-hidden ">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="absolute top-4 left-4 z-50 text-white text-3xl lg:hidden"
@@ -26,7 +26,7 @@ const App = () => {
         ></div>
       )}
 
-      <div className="h-full flex flex-col lg:flex-row">
+      <div className="h-screen flex flex-col lg:flex-row">
         <SideBar isOpen={isOpen} handleClose={handleClose} />
         <SongCard />
         <MusicPlayer />

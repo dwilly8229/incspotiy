@@ -7,12 +7,12 @@ const SideBar = ({ isOpen, handleClose }) => {
   const { dominantColor } = useContext(PlayerContext);
   return (
     <div
-      className={`fixed lg:relative top-0 left-0 w-[383px] h-full p-2 flex-col gap-2 text-white z-[999] transition-transform duration-300 ${
+      className={`fixed lg:relative top-0 left-0 w-[250px] lg:w-[25%] sm:w-[383px]  h-full lg:p-2 flex flex-col gap-2 text-white z-[999] transition-transform duration-300 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } lg:translate-x-0 lg:flex `}
     >
       <div
-        className="bg-[#121212] h-full rounded flex flex-col justify-between transition-all duration-500"
+        className="bg-[#121212] h-[100%] rounded flex flex-col md:shrink-0 justify-between transition-all duration-500"
         onClick={handleClose}
         style={{
           background: `linear-gradient(160deg, ${
@@ -20,14 +20,18 @@ const SideBar = ({ isOpen, handleClose }) => {
           }, #121212)`,
         }}
       >
-        <div className="flex items-center mb-8">
-          <img
-            src={assets.spotify_logo}
-            alt="Spotify Logo"
-            className="w-14 h-auto"
-            onClick={handleClose}
-          />
-          <span className="ml-2 text-2xl font-bold">Spotify</span>
+        <div className=" flex items-center mb-8">
+          <div>
+            <img
+              src={assets.spotify_logo}
+              alt="Spotify Logo"
+              className="w-14 h-auto"
+              onClick={handleClose}
+            />
+          </div>
+          <span className="ml-2 text-2xl font-bold tracking-wide ">
+            Spotify
+          </span>
         </div>
         <ul className="flex-grow">
           <li className="pl-5 mb-4">

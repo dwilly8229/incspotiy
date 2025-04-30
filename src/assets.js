@@ -61,6 +61,16 @@ import lamhey from "/assets/lamhey.jpg";
 import lamheyS from "/assets/lamhey.mp3";
 import JoTum from "/assets/JoTum.jpg";
 import JoTumS from "/assets/JoTum.mp3";
+import mayak from "/assets/Mayakirriye.webp";
+import mayakS from "/assets/Mayakirriye.mp3";
+import dgy from "/assets/dgy.jpg";
+import dgyS from "/assets/dgy.mp3";
+import havana from "/assets/havana.jpg";
+import havanaS from "/assets/havana.mp3";
+import sen from "/assets/sen.jpg";
+import senS from "/assets/sen.mp3";
+import wont from "/assets/wont.jpg";
+import wontS from "/assets/wont.mp3";
 
 export const assets = {
   bell_icon,
@@ -202,5 +212,45 @@ export const songsData = [
     cover: JoTum,
     src: JoTumS,
     duration: "4:17",
+  },
+  {
+    id: 8,
+    title: "Mayakirriye",
+    artist: "AniVee and Anirudh Ravichandern",
+    cover: mayak,
+    src: mayakS,
+    duration: "3:13",
+  },
+  {
+    id: 9,
+    title: "Don't go yet",
+    artist: "Camila Cabello",
+    cover: dgy,
+    src: dgyS,
+    duration: "3:02",
+  },
+  {
+    id: 10,
+    title: "Havana",
+    artist: "Camila Cabello",
+    cover: havana,
+    src: havanaS,
+    duration: "3:38",
+  },
+  {
+    id: 11,
+    title: "Señorita",
+    artist: "Shawn Mendes",
+    cover: sen,
+    src: senS,
+    duration: "3:38",
+  },
+  {
+    id: 12,
+    title: "I won't give up",
+    artist: "Jason Mraz",
+    cover: wont,
+    src: wontS,
+    duration: "3:38",
   },
 ];

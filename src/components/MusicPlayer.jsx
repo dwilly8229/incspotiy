@@ -52,7 +52,7 @@ const MusicPlayer = () => {
 
   if (!currentSong) {
     return (
-      <div className="hidden lg:flex w-[950px] min-h-[100px] flex items-center justify-center text-gray-400 bg-[#121212] rounded-t-2xl my-2">
+      <div className="hidden lg:flex w-[950px] min-h-[100px] flex items-center justify-center text-gray-400 bg-[#121212] rounded-2xl my-2">
         Select a song to start playing
       </div>
     );
@@ -96,8 +96,12 @@ const MusicPlayer = () => {
   return (
     <div
       onClick={handleExpand}
-      className={`fixed bottom-0 left-0 w-full bg-[#121212] text-white p-4 rounded-t-2xl transition-all duration-500 z-40
-        ${isExpanded ? "h-[100%]" : "h-16 flex items-center justify-between"}
+      className={`fixed bottom-0 left-0 w-full bg-[#121212] text-white p-3 sm:p-4 rounded-t-2xl transition-all duration-500 z-40
+        ${
+          isExpanded
+            ? "h-full pt-25 overflow-y-auto"
+            : "h-16 flex items-center justify-between"
+        }
         lg:static lg:h-auto lg:rounded lg:cursor-default lg:flex-col lg:items-center lg:justify-start lg:w-[60%] my-2`}
       style={{
         background:
@@ -108,11 +112,11 @@ const MusicPlayer = () => {
     >
       {isExpanded || isDesktop ? (
         <>
-          <div className="flex justify-between w-full items-center mb-4">
+          <div className="flex justify-between w-full items-center ">
             <div />
             <button
               onClick={handleCollapse}
-              className="text-gray-400 text-2xl font-bold focus:outline-none lg:hidden"
+              className="text-gray-400 text-2xl  font-bold focus:outline-none lg:hidden"
             >
               ❌
             </button>
@@ -120,16 +124,18 @@ const MusicPlayer = () => {
           <img
             src={currentSong.cover}
             alt="cover"
-            className="w-full max-w-[400px] aspect-square rounded-xl object-cover shadow-md mb-4"
+            className="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] aspect-square rounded-xl object-cover shadow-md mx-auto mb-4"
           />
-          <div className="text-center mb-4">
-            <h2 className="text-white text-2xl font-semibold mb-1">
+          <div className="text-center px-2 mb-4">
+            <h2 className="text-white text-lg sm:text-xl font-semibold mb-1 truncate">
               {currentSong.title}
             </h2>
-            <p className="text-gray-400 ">{currentSong.artist}</p>
+            <p className="text-gray-400 text-sm sm:text-base truncate">
+              {currentSong.artist}
+            </p>
           </div>
 
-          <div className="w-full px-6 mb-4">
+          <div className="w-full px-2 sm:px-6 mb-4">
             <div className="relative">
               <div
                 className="h-2 w-full bg-gray-700 rounded-full cursor-pointer"
@@ -140,37 +146,37 @@ const MusicPlayer = () => {
                   style={{ width: `${(progress / duration) * 100 || 0}%` }}
                 />
               </div>
-              <div className="absolute right-0 -bottom-6 text-xs text-gray-400">
+              <div className="absolute right-0 -bottom-6 text-[10px] sm:text-sm text-gray-400">
                 {formatTime(progress)} / {formatTime(duration)}
               </div>
             </div>
           </div>
 
-          <div className=" mt-4 h-10 pt-8 pb-15 flex items-center justify-center">
+          <div className=" mt-4 flex flex-col items-center gap-4">
             <div className="flex items-center justify-center gap-6 ">
               <img
                 src={assets.arrow_left}
                 alt="prev"
-                className="w-6 h-6 cursor-pointer"
+                className="w-6 h-6 sm:w-7 sm:h-7 cursor-pointer"
                 onClick={playPrev}
               />
               <img
                 src={isPlaying ? assets.pause_icon : assets.play_icon}
                 alt="play/pause"
-                className="w-8 h-8 cursor-pointer"
+                className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer"
                 onClick={togglePlayPause}
               />
               <img
                 src={assets.arrow_right}
                 alt="next"
-                className="w-6 h-6 cursor-pointer"
+                className="w-6 h-6 sm:w-7 sm:w-7 cursor-pointer"
                 onClick={playNext}
               />
             </div>
             <img
               src={assets.like_icon}
               alt="fav"
-              className={`relative w-6 h-6  cursor-pointer  transition-opacity duration-200 ${
+              className={`w-6 h-6  cursor-pointer  transition-opacity duration-200 ${
                 isFav(currentSong.id) ? "opacity-100" : "opacity-40"
               }`}
               onClick={handleFavourites}

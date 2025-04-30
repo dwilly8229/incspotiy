@@ -27,22 +27,24 @@ const SongCard = () => {
   };
   return (
     <div
-      className="w-full lg:w-[75%] lg:m-2 lg:pt-6 pb-6 px-4 lg:ml-0 sm:px-6 pt-15 lg:rounded  bg-[#121212] text-white overflow-auto transition-all duration-500"
+      className="h-full w-full lg:w-[75%] lg:m-2 lg:pt-6 pb-6 px-4 lg:ml-0 sm:px-6 pt-15 rounded  bg-[#121212] text-white transition-all duration-500 flex flex-col"
       style={{
         background: `linear-gradient(160deg, ${
           dominantColor || "#1e1e1e"
         }, #121212)`,
       }}
     >
-      <h1 className="text-2xl font-bold pl-2 mb-4">{getTitle()}</h1>
-      <input
-        type="text"
-        value={searchTerm}
-        placeholder="  Search for artist or song  "
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className=" w-full h-10 px-3 mb-6 rounded-full bg-neutral-800 text-white text-sm focus:outline-none"
-      />
-      <div>
+      <div className="shrink-0">
+        <h1 className="text-2xl font-bold pl-2 mb-4">{getTitle()}</h1>
+        <input
+          type="text"
+          value={searchTerm}
+          placeholder="  Search for artist or song  "
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className=" w-full h-10 px-4 mb-4 rounded-full bg-neutral-800 text-white text-sm focus:outline-none"
+        />
+      </div>
+      <div className="flex-1 overflow-y-auto pr-1">
         <Routes>
           <Route path="/" element={<Home searchTerm={searchTerm} />} />
           <Route
