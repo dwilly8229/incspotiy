@@ -122,16 +122,17 @@ const MusicPlayer = () => {
               ❌
             </button>
           </div>
+          <br />
           <img
             src={currentSong.cover}
             alt="cover"
-            className="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] aspect-square rounded-xl object-cover shadow-md mx-auto mb-4"
+            className="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] sm:mt-2 aspect-square rounded-xl object-cover shadow-md mx-auto mb-4"
           />
           <div className="text-center px-2 mb-4">
             <h2 className="text-white text-lg sm:text-xl font-semibold mb-1 truncate">
               {currentSong.title}
             </h2>
-            <p className="text-gray-400 text-sm sm:text-base truncate">
+            <p className="text-gray-400 text-sm sm:pt-2 sm:text-base truncate">
               {currentSong.artist}
             </p>
           </div>

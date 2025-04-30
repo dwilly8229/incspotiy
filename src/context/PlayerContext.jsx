@@ -31,6 +31,30 @@ export const PlayerProvider = ({ children }) => {
     }
   }, [isPlaying, currentSong]);
 
+  const togglePlayPause = () => {
+    if (!currentSong || !audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code === "Space") {
+        if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName))
+          return;
+        e.preventDefault();
+        togglePlayPause();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [togglePlayPause]);
+
   const extractDominantColor = (imageUrl) => {
     const img = new Image();
     img.crossOrigin = "Anonymous";
@@ -63,16 +87,6 @@ export const PlayerProvider = ({ children }) => {
   const toggleFavourtie = (song) => {
     addToFavourites(song);
     setFavourites(getFavourites());
-  };
-
-  const togglePlayPause = () => {
-    if (!currentSong || !audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
   };
 
   const playSong = (song) => {
