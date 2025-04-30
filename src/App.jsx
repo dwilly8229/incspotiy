@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SideBar from "./components/SideBar";
 import SongCard from "./components/SongCard";
 import MusicPlayer from "./components/MusicPlayer";
+import { PlayerContext } from "./context/PlayerContext";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isExpanded } = useContext(PlayerContext);
 
   const handleClose = () => {
     setIsOpen(false);
@@ -14,7 +16,8 @@ const App = () => {
     <div className="h-auto sm:min-h-screen bg-black relative overflow-hidden ">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="absolute top-4 left-4 z-50 text-white text-3xl lg:hidden"
+        className={`absolute top-4 left-4 z-50 text-white text-3xl lg:hidden
+          ${isExpanded ? "pointer-events-none opacity-50" : ""}`}
       >
         &#9776;
       </button>

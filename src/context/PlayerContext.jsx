@@ -16,6 +16,7 @@ export const PlayerProvider = ({ children }) => {
   const audioRef = useRef(null);
   const [favourites, setFavourites] = useState(getFavourites());
   const [recentlyPlayed, setRecentlyPlayed] = useState(getRecentlyPlayed());
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     if (audioRef.current && currentSong) {
@@ -119,6 +120,8 @@ export const PlayerProvider = ({ children }) => {
         isFav,
         recentlyPlayed,
         dominantColor,
+        isExpanded,
+        setIsExpanded,
       }}
     >
       <audio

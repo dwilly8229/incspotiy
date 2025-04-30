@@ -13,11 +13,12 @@ const MusicPlayer = () => {
     toggleFavourtie,
     isFav,
     dominantColor,
+    isExpanded,
+    setIsExpanded,
   } = useContext(PlayerContext);
 
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [isExpanded, setIsExpanded] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
 
   useEffect(() => {
