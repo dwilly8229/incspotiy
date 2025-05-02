@@ -9,7 +9,7 @@ import { PlayerContext } from "../context/PlayerContext";
 const SongCard = () => {
   const location = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
-  const { dominantColor } = useContext(PlayerContext);
+  const { dominantColor, isExpanded } = useContext(PlayerContext);
 
   const getTitle = () => {
     switch (location.pathname) {
@@ -46,7 +46,11 @@ const SongCard = () => {
       </div>
       <div
         className="flex-1 overflow-y-auto pr-1"
-        style={{ paddingBottom: "calc(2rem + env(safe-area-inset-bottom))" }}
+        style={{
+          paddingBottom: `calc(${
+            isExpanded ? "12rem" : "3rem"
+          } + env(safe-area-inset-bottom))`,
+        }}
       >
         <Routes>
           <Route path="/" element={<Home searchTerm={searchTerm} />} />
