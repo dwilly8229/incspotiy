@@ -44,7 +44,10 @@ const SongCard = () => {
           className=" w-full h-10 px-4 mb-4 rounded-full bg-neutral-800 text-white text-sm focus:outline-none"
         />
       </div>
-      <div className="flex-1 overflow-y-auto pr-1">
+      <div
+        className="flex-1 overflow-y-auto pr-1"
+        style={{ paddingBottom: "calc(2rem + env(safe-area-inset-bottom))" }}
+      >
         <Routes>
           <Route path="/" element={<Home searchTerm={searchTerm} />} />
           <Route
