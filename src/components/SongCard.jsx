@@ -48,7 +48,7 @@ const SongCard = () => {
         className="flex-1 overflow-y-auto pr-1"
         style={{
           paddingBottom: `calc(${
-            isExpanded ? "12rem" : "3rem"
+            isExpanded ? "12rem" : "5rem"
           } + env(safe-area-inset-bottom))`,
         }}
       >
